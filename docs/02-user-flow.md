@@ -1,10 +1,11 @@
- User Flow Administrasi-Guru
-1. Gambaran Umum
+# User Flow Administrasi-Guru
 
-User Flow menjelaskan alur penggunaan sistem Administrasi-Guru
-berdasarkan jenis pengguna, yaitu Guru dan Siswa.
+## 1. Gambaran Umum
 
-Alur sistem dibagi menjadi:
+User Flow menjelaskan alur penggunaan sistem **Administrasi-Guru**
+berdasarkan jenis pengguna, yaitu **Guru** dan **Siswa**.
+
+Alur utama sistem meliputi:
 
 1. Authentication
 2. Dashboard
@@ -12,15 +13,22 @@ Alur sistem dibagi menjadi:
 4. Materi
 5. Bank Soal
 6. Ujian
-7. Monitoring Ujian
+7. Monitoring Ujian Real-Time
 8. Anti-Cheat
 9. Absensi QR Code
 10. Laporan
 11. Profil
+12. Logout
 
-2. User Flow Guru
-2.1 Login Guru
-    text
+---
+
+# 2. User Flow Guru
+
+## 2.1 Login Guru
+
+Alur login guru:
+
+```text
 Halaman Login
       ↓
 Input Username
@@ -37,9 +45,17 @@ Apakah data valid?
    ↓      ↓
 Pesan    Dashboard Guru
 Error
-2.2 Dasbor Guru
+```
+
+Jika username dan password valid, guru diarahkan ke **Dashboard Guru**.
+
+---
+
+## 2.2 Dashboard Guru
 
 Setelah berhasil login, guru masuk ke Dashboard.
+
+```text
 Dashboard Guru
       │
       ├── Data Siswa
@@ -50,48 +66,66 @@ Dashboard Guru
       ├── Absensi
       ├── Laporan
       └── Profil
+```
 
 Dashboard menampilkan informasi ringkas:
 
-Jumlah siswa.
-Jumlah materi.
-Jumlah soal bank.
-Ujian aktif.
-Rekap kehadiran.
-Aktivitas terbaru.
+- Jumlah siswa
+- Jumlah materi
+- Jumlah bank soal
+- Ujian aktif
+- Rekap kehadiran
+- Aktivitas terbaru
 
-3. Alur Data Pengguna Siswa
-3.1 Melihat Data Siswa
+---
+
+# 3. User Flow Data Siswa
+
+## 3.1 Melihat Data Siswa
+
+```text
 Dashboard
     ↓
 Data Siswa
     ↓
 Daftar Siswa
+```
 
 Guru dapat:
 
-Melihat data siswa.
-Mencari siswa.
-Memfilter siswa.
-Memperhatikan detail siswa.
-Menambah siswa.
-Mengubah siswa.
-Menghapus siswa.
+- Melihat data siswa
+- Mencari siswa
+- Memfilter siswa
+- Melihat detail siswa
+- Menambah siswa
+- Mengubah data siswa
+- Menghapus siswa
 
-3.2 Menambah Siswa
+---
+
+## 3.2 Menambah Siswa
+
+```text
 Data Siswa
     ↓
 Tambah Siswa
     ↓
 Isi Form Siswa
     ↓
-Validasi
+Validasi Data
     ↓
 Simpan
     ↓
-Data berhasil ditambahkan
+Data Berhasil Ditambahkan
+```
 
-3.3 Impor Siswa
+---
+
+## 3.3 Import Siswa
+
+Guru dapat memasukkan data siswa menggunakan file **Excel/CSV**.
+
+```text
 Data Siswa
     ↓
 Import Excel/CSV
@@ -102,63 +136,87 @@ Validasi File
     ↓
 Preview Data
     ↓
-Apakah data valid?
+Apakah Data Valid?
    ┌──┴──┐
   Tidak  Ya
    ↓      ↓
 Perbaiki  Import
 Data      ↓
           Data Siswa
+```
 
-Guru dapat mengunduh template sebelum melakukan import.
+Guru dapat mengunduh template terlebih dahulu sebelum melakukan import.
 
-4. Alur Pengguna Materi
-4.1 Mengelola Materi
+---
+
+# 4. User Flow Materi
+
+## 4.1 Mengelola Materi
+
+```text
 Dashboard
     ↓
 Materi
     ↓
 Daftar Materi
+```
 
 Guru dapat:
 
-Unggah materi.
-Melihat materi.
-Pratinjau materi.
-Mengubah materi.
-Menghapus materi.
-Mengelompokkan materi berdasarkan kelas.
-Mengelompokkan materi berdasarkan mata pelajaran.
+- Mengunggah materi
+- Melihat materi
+- Melakukan preview materi
+- Mengubah materi
+- Menghapus materi
+- Mengelompokkan materi berdasarkan kelas
+- Mengelompokkan materi berdasarkan mata pelajaran
 
-4.2 Pratinjau Materi
+---
+
+## 4.2 Preview Materi
+
+```text
 Daftar Materi
     ↓
 Pilih Materi
     ↓
 Preview Materi
     ↓
-Guru membaca/melihat materi
+Guru Membaca/Melihat Materi
+```
 
-Materi dapat ditampilkan melalui preview tanpa harus mengunduh file.
+Materi dapat ditampilkan melalui fitur **preview tanpa harus mengunduh file**.
 
-5. Alur Pengguna Bank Soal
-5.1 Mengelola Bank Soal
+---
+
+# 5. User Flow Bank Soal
+
+## 5.1 Mengelola Bank Soal
+
+```text
 Dashboard
     ↓
 Bank Soal
     ↓
 Daftar Bank Soal
+```
 
 Guru dapat:
 
-Membuat soal bank.
-Melihat soal bank.
-Menambah soal.
-Mengubah soal.
-Menghapus soal.
-Mengimpor soal menggunakan template.
+- Membuat bank soal
+- Melihat bank soal
+- Menambah soal
+- Mengubah soal
+- Menghapus soal
+- Mengimpor soal menggunakan template
 
-5.2 Impor Soal
+---
+
+## 5.2 Import Soal
+
+Guru dapat membuat banyak soal menggunakan template yang telah disediakan.
+
+```text
 Bank Soal
     ↓
 Import Soal
@@ -173,16 +231,22 @@ Validasi
     ↓
 Preview Soal
     ↓
-Apakah valid?
+Apakah Data Valid?
    ┌──┴──┐
   Tidak  Ya
    ↓      ↓
 Perbaiki  Simpan
 Data      ↓
           Bank Soal
+```
 
-6. Ujian Alur Pengguna
-6.1 Membuat Ujian
+---
+
+# 6. User Flow Ujian
+
+## 6.1 Membuat Ujian
+
+```text
 Dashboard
     ↓
 Ujian
@@ -202,20 +266,25 @@ Atur Durasi
 Simpan
     ↓
 Ujian Berstatus Draft
+```
 
 Informasi ujian meliputi:
 
-Nama ujian.
-Mata pelajaran.
-Kelas.
-Daftar soal.
-Tanggal ujian.
-Waktu mulai.
-Waktu selesai.
-Durasi.
-Status ujian.
+- Nama ujian
+- Mata pelajaran
+- Kelas
+- Daftar soal
+- Tanggal ujian
+- Waktu mulai
+- Waktu selesai
+- Durasi
+- Status ujian
 
-6.2 Membuka Ujian
+---
+
+## 6.2 Membuka Ujian
+
+```text
 Daftar Ujian
     ↓
 Pilih Ujian
@@ -224,11 +293,28 @@ Review Pengaturan
     ↓
 Aktifkan Ujian
     ↓
-Status = Live
+Status = LIVE
     ↓
-Siswa dapat mengikuti ujian
+Siswa Dapat Mengikuti Ujian
+```
 
-7. Alur Pengguna Siswa Mengikuti Ujian
+Status ujian:
+
+```text
+DRAFT
+  ↓
+SCHEDULED
+  ↓
+LIVE
+  ↓
+FINISHED
+```
+
+---
+
+# 7. User Flow Siswa Mengikuti Ujian
+
+```text
 Login Siswa
     ↓
 Dashboard Siswa
@@ -252,21 +338,27 @@ Kirim Jawaban
 Konfirmasi Pengumpulan
     ↓
 Ujian Selesai
+```
 
-Jika waktu habis:
+### Jika waktu ujian habis
 
+```text
 Timer = 00:00
      ↓
-Sistem mengakhiri ujian
+Sistem Mengakhiri Ujian
      ↓
-Jawaban disimpan
+Jawaban Disimpan
      ↓
-Ujian selesai
+Ujian Selesai
+```
 
-8. Pemantauan Alur Pengguna Ujian Real-Time
+---
 
-Guru dapat ikut serta dalam peserta ketika ujian berlangsung.
+# 8. User Flow Monitoring Ujian Real-Time
 
+Guru dapat memantau peserta selama ujian berlangsung.
+
+```text
 Dashboard Guru
       ↓
 Ujian
@@ -274,28 +366,34 @@ Ujian
 Pilih Ujian Aktif
       ↓
 Monitoring Real-Time
+```
 
 Informasi yang ditampilkan:
 
-Jumlah peserta.
-Sedang mengerjakan.
-Sudah selesai.
-Belum dimulai.
-Status koneksi.
-Waktu pengerjaan.
+- Total peserta
+- Sedang mengerjakan
+- Sudah selesai
+- Belum mulai
+- Status koneksi
+- Waktu pengerjaan
 
 Contoh:
 
-Total Peserta : 30
+```text
+Total Peserta       : 30
+Sedang Mengerjakan  : 24
+Sudah Selesai       : 4
+Belum Mulai         : 2
+```
 
-Sedang Mengerjakan : 24
-Sudah Selesai      : 4
-Belum Mulai        : 2
+---
 
-9. Anti-Kecurangan Alur Pengguna
+# 9. User Flow Anti-Cheat
 
-Sistem mendeteksi aktivitas yang dapat dicatat oleh browser.
+Sistem mendeteksi dan mencatat aktivitas mencurigakan yang dapat
+dideteksi oleh browser selama ujian berlangsung.
 
+```text
 Siswa Mengerjakan Ujian
           ↓
 Sistem Memantau Aktivitas
@@ -304,25 +402,33 @@ Aktivitas Mencurigakan?
       ┌───┴───┐
      Tidak    Ya
       ↓        ↓
-Lanjut     Catat Pelanggaran
-               ↓
-        Monitoring Guru
+   Lanjut   Catat Pelanggaran
+                   ↓
+            Monitoring Guru
+```
 
 Aktivitas yang dapat dicatat:
 
-Berpindah tab.
-Keluar dari mode layar penuh.
-Meninggalkan halaman ujian.
-Kehilangan koneksi.
-Aktivitas lain yang dapat dideteksi browser.
+- Berpindah tab
+- Keluar dari mode fullscreen
+- Meninggalkan halaman ujian
+- Kehilangan koneksi
+- Aktivitas lain yang dapat dideteksi oleh browser
 
-Catatan:
+### Catatan
 
-Fitur anti-cheat merupakan mekanisme deteksi dan mitigasi.
-Sistem tidak menjamin pencegahan kondisi secara 100%.
+> Fitur anti-cheat merupakan mekanisme **deteksi dan mitigasi**.
+> Sistem tidak menjamin pencegahan kecurangan secara 100%.
 
-10. Alur Pengguna Kode QR Absensi
-10.1 Guru Membuat Sesi Absensi
+---
+
+# 10. User Flow Absensi QR Code
+
+Absensi dilakukan secara online menggunakan **QR Code**.
+
+## 10.1 Guru Membuat Sesi Absensi
+
+```text
 Dashboard Guru
       ↓
 Absensi
@@ -338,10 +444,15 @@ Atur Waktu
 Generate QR Code
       ↓
 QR Code Aktif
+```
 
-QR Code memiliki masa berlaku tertentu.
+QR Code memiliki **masa berlaku tertentu**.
 
-10.2 Siswa Melakukan Absensi
+---
+
+## 10.2 Siswa Melakukan Absensi
+
+```text
 Login Siswa
       ↓
 Absensi
@@ -352,42 +463,66 @@ Sistem Membaca QR
       ↓
 Validasi QR
       ↓
-QR masih aktif?
+QR Masih Aktif?
    ┌──┴──┐
   Tidak  Ya
    ↓      ↓
-Gagal   Validasi Siswa
-          ↓
-      Terdaftar di kelas?
-        ┌──┴──┐
-       Tidak  Ya
-        ↓      ↓
-       Gagal  Sudah Absen?
-                 ┌──┴──┐
-                Ya     Belum
-                ↓       ↓
-              Gagal   Simpan
-                        ↓
-                   HADIR
-10.3 Hasil Absensi
+ Gagal   Validasi Siswa
+              ↓
+        Terdaftar di Kelas?
+           ┌──┴──┐
+          Tidak  Ya
+           ↓      ↓
+         Gagal  Sudah Absen?
+                    ┌──┴──┐
+                   Ya     Belum
+                   ↓       ↓
+                 Gagal   Simpan
+                            ↓
+                          HADIR
+```
 
-Jika berhasil:
+### Validasi Absensi
 
-✓ Absensi Berhasil
+Sistem melakukan validasi:
+
+1. QR Code masih aktif.
+2. QR Code sesuai dengan sesi absensi.
+3. Siswa terdaftar pada kelas tersebut.
+4. Siswa belum melakukan absensi pada sesi tersebut.
+5. Waktu absensi masih berada dalam periode yang ditentukan.
+
+---
+
+## 10.3 Hasil Absensi
+
+Jika absensi berhasil:
+
+```text
+✓ ABSENSI BERHASIL
 
 Nama       : Nama Siswa
 Kelas      : Kelas Siswa
 Tanggal    : Tanggal
 Waktu      : Waktu Scan
 Status     : HADIR
+```
 
-Jika QR sudah tidak aktif:
+Jika QR Code sudah tidak aktif:
 
-✕ Absensi Gagal
+```text
+✕ ABSENSI GAGAL
 
 QR Code sudah kedaluwarsa.
+
 Silakan gunakan QR Code yang masih aktif.
-11. Alur Pengguna Rekap Absensi Guru
+```
+
+---
+
+# 11. User Flow Rekap Absensi Guru
+
+```text
 Dashboard Guru
       ↓
 Absensi
@@ -403,17 +538,22 @@ Tampilkan Data
 Lihat Rekap
       ↓
 Export Excel/PDF
+```
 
 Guru dapat melihat:
 
-Hadir.
-Izin.
-Sakit.
-Alpa.
-Jumlah siswa.
-Persentase hadir.
+- Hadir
+- Izin
+- Sakit
+- Alpa
+- Jumlah siswa
+- Persentase kehadiran
 
-12. Laporan Alur Pengguna
+---
+
+# 12. User Flow Laporan
+
+```text
 Dashboard Guru
       ↓
 Laporan
@@ -428,16 +568,22 @@ Tampilkan Data
       ↓
 Laporan
    ┌──┴──┐
-  Excel  PDF
+ Excel  PDF
+```
 
 Jenis laporan:
 
-Laporan siswa.
-Laporan absensi.
-Laporan ujian.
-Laporan nilai.
-Statistik.
-13. Profil Alur Pengguna
+- Laporan siswa
+- Laporan absensi
+- Laporan ujian
+- Laporan nilai
+- Statistik
+
+---
+
+# 13. User Flow Profil
+
+```text
 Dashboard
     ↓
 Profil
@@ -447,21 +593,31 @@ Lihat Profil
 Edit Profil
     ↓
 Simpan Perubahan
+```
 
-Guru dapat mengubah informasi profil sesuai hak akses.
+Guru dapat mengubah informasi profil sesuai dengan hak akses.
 
-14. Alur Pengguna Keluar
+---
+
+# 14. User Flow Logout
+
+```text
 Dashboard
     ↓
 Logout
     ↓
 Konfirmasi
     ↓
-Logout
+Logout Berhasil
     ↓
 Halaman Login
+```
 
-15. Ringkasan Alur Guru
+---
+
+# 15. Ringkasan User Flow Guru
+
+```text
 LOGIN
   ↓
 DASHBOARD
@@ -496,14 +652,19 @@ DASHBOARD
   │     └── PDF
   │
   └── PROFIL
+```
 
-16. Ringkasan Alur Siswa
+---
+
+# 16. Ringkasan User Flow Siswa
+
+```text
 LOGIN
   ↓
 DASHBOARD SISWA
   │
   ├── MATERI
-  │     └── LIHAT/PREVIEW
+  │     └── LIHAT / PREVIEW
   │
   ├── UJIAN
   │     ├── LIHAT UJIAN
@@ -515,15 +676,29 @@ DASHBOARD SISWA
   │     ├── SCAN QR
   │     └── ABSENSI BERHASIL
   │
-  └── RIWAYAT/NILAI
+  └── RIWAYAT / NILAI
+```
 
-17. Kesimpulan
+---
 
-Alur Pengguna ini menjadi dasar untuk:
+# 17. Kesimpulan
 
-Perancangan UI/UX.
-Basis data Peranangan.
-Peranangan API.
-Pembagian tugas Front-End dan Back-End.
-Pengembangan sistem.
-Pengujian sistem.
+User Flow ini menjadi dasar dalam pengembangan sistem
+**Administrasi-Guru**, terutama untuk:
+
+1. Perancangan UI/UX.
+2. Perancangan database.
+3. Perancangan API.
+4. Pembagian tugas Front-End dan Back-End.
+5. Pengembangan sistem.
+6. Pengujian sistem.
+7. Integrasi sistem.
+
+Dokumen ini menjadi acuan bersama bagi:
+
+- **Wawan** — Project Manager
+- **Guntur** — Front-End Developer
+- **Rahmat** — Back-End Developer
+
+Setiap perubahan pada alur sistem harus didiskusikan dan disepakati
+oleh tim sebelum diterapkan pada tahap pengembangan.
