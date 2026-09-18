@@ -2,8 +2,7 @@
 
 ## 1. Deskripsi
 
-API Contract merupakan kesepakatan antara Front-End dan Back-End
-mengenai komunikasi data pada sistem Administrasi-Guru.
+API Contract merupakan kesepakatan antara Front-End dan Back-End mengenai komunikasi data pada sistem Administrasi-Guru.
 
 Dokumen ini menjadi acuan bagi:
 
@@ -12,6 +11,15 @@ Dokumen ini menjadi acuan bagi:
 - Rahmat — Back-End Developer
 
 API menggunakan REST API dengan format data JSON.
+
+---
+
+## 2. Base URL
+
+### Development
+
+```text
+http://localhost:3000/api
 Produksi
 https://domain-aplikasi.com/api
 3. Format Tanggapan
@@ -29,7 +37,9 @@ Kesalahan
 }
 4. Otentikasi
 Login
+
 POS
+
 /api/auth/login
 Meminta
 {
@@ -49,23 +59,33 @@ Tanggapan
     }
   }
 }
-Dapatkan Login Pengguna
+Dapatkan Pengguna Saat Ini
+
 MENDAPATKAN
+
 /api/auth/me
 Keluar
+
 POS
+
 /api/auth/logout
 Otorisasi
 Authorization: Bearer JWT_TOKEN
 5. Data Siswa
 Mendapatkan Semua Siswa
+
 MENDAPATKAN
+
 /api/students
 Dapatkan Detail Siswa
+
 MENDAPATKAN
+
 /api/students/:id
 Siswa
+
 POS
+
 /api/students
 Meminta
 {
@@ -76,13 +96,19 @@ Meminta
   "phone": "08123456789"
 }
 Mengubah Siswa
+
 MELETAKKAN
+
 /api/students/:id
 Menghapus Siswa
+
 MENGHAPUS
+
 /api/students/:id
 Impor Siswa
+
 POS
+
 /api/students/import
 
 Format:
@@ -94,17 +120,25 @@ File yang Didukung:
 .xlsx
 .csv
 Unduh Templat Siswa
+
 MENDAPATKAN
+
 /api/students/template
 6. Materi
-Semua Materi
+Mendapatkan Semua Materi
+
 MENDAPATKAN
+
 /api/materials
-Detail Materi
+Dapatkan Detail Materi
+
 MENDAPATKAN
+
 /api/materials/:id
 Unggah Materi
+
 POS
+
 /api/materials
 
 Format:
@@ -119,23 +153,35 @@ class_id
 subject_id
 file
 Pembaruan Materi
+
 MELETAKKAN
+
 /api/materials/:id
 Hapus Materi
+
 MENGHAPUS
+
 /api/materials/:id
 Pratinjau Materi
+
 MENDAPATKAN
+
 /api/materials/:id/preview
 7. Bank Soal
-Semua Bank Soal
+Mendapatkan Semua Bank Soal
+
 MENDAPATKAN
+
 /api/question-banks
-Detail Bank Soal
+Dapatkan Detail Bank Soal
+
 MENDAPATKAN
+
 /api/question-banks/:id
-Tambah Bank Soal
+Bank Soal
+
 POS
+
 /api/question-banks
 Meminta
 {
@@ -143,18 +189,26 @@ Meminta
   "subject_id": 1,
   "class_id": 1
 }
-Pembaruan Bank Soal
+Mengubah Bank Soal
+
 MELETAKKAN
+
 /api/question-banks/:id
-Hapus Bank Soal
+Bank Soal
+
 MENGHAPUS
+
 /api/question-banks/:id
 8. Soal
-Semua Soal
+Mendapatkan Semua Soal
+
 MENDAPATKAN
+
 /api/questions
-Tambah Soal
+Soal
+
 POS
+
 /api/questions
 Meminta
 {
@@ -177,36 +231,50 @@ Meminta
   ],
   "correct_answer": "B"
 }
-Pembaruan Soal
+Mengubah Soal
+
 MELETAKKAN
+
 /api/questions/:id
-Hapus Soal
+Menghapus Soal
+
 MENGHAPUS
+
 /api/questions/:id
 Impor Soal
+
 POS
+
 /api/questions/import
 
 Format:
 
 multipart/form-data
 
-Mengajukan:
+File yang Didukung:
 
 .xlsx
 .csv
 Unduh Templat Soal
+
 MENDAPATKAN
+
 /api/questions/template
 9. Ujian
-Semua Ujian
+Mendapatkan Semua Ujian
+
 MENDAPATKAN
+
 /api/exams
-Detail Ujian
+Dapatkan Detail Ujian
+
 MENDAPATKAN
+
 /api/exams/:id
 Membuat Ujian
+
 POS
+
 /api/exams
 Meminta
 {
@@ -217,23 +285,35 @@ Meminta
   "start_time": "2026-09-20 08:00:00",
   "end_time": "2026-09-20 09:00:00"
 }
-Pembaruan Ujian
+Mengubah Ujian
+
 MELETAKKAN
+
 /api/exams/:id
-Hapus Ujian
+Menghapus Ujian
+
 MENGHAPUS
+
 /api/exams/:id
 Memulai / Memasukkan Ujian
+
 POS
+
 /api/exams/:id/start
 Mengakhiri Ujian
+
 POS
+
 /api/exams/:id/finish
-Peserta Ujian
+Mendapatkan Peserta Ujian
+
 MENDAPATKAN
+
 /api/exams/:id/participants
 Simpan Jawaban
+
 POS
+
 /api/exams/:id/answers
 Meminta
 {
@@ -241,10 +321,14 @@ Meminta
   "answer": "B"
 }
 Kirim Ujian
+
 POS
+
 /api/exams/:id/submit
 Melihat Hasil Ujian
+
 MENDAPATKAN
+
 /api/exams/:id/result
 Status Ujian
 DRAFT
@@ -253,21 +337,16 @@ LIVE
 FINISHED
 10. Pemantauan Waktu Nyata
 
-Pemantauan menggunakan WebSocket .
+Memantau ujian menggunakan WebSocket.
 
-Peristiwa:
-
+Peristiwa
 student_joined
 student_submitted
 connection_status
-
-Status koneksi:
-
+Status Koneksi
 ONLINE
 OFFLINE
-
-Pemantauan informasi:
-
+Informasi Pemantauan
 Nama siswa
 Status ujian
 Waktu mulai
@@ -278,18 +357,24 @@ Status koneksi
 Sistem mencatat aktivitas yang dapat terdeteksi selama ujian.
 
 Simpan
+
 POS
+
 /api/exams/:id/violations
 Meminta
 {
   "type": "TAB_SWITCH",
   "description": "Siswa berpindah tab"
 }
-Semua
+Dapatkan Semua
+
 MENDAPATKAN
+
 /api/exams/:id/violations
-Siswa
+Mendapatkan Pelanggaran Siswa
+
 MENDAPATKAN
+
 /api/exams/:id/participants/:studentId/violations
 Jenis λ
 TAB_SWITCH
@@ -297,14 +382,16 @@ FULLSCREEN_EXIT
 PAGE_LEAVE
 CONNECTION_LOST
 
-Catatan: fitur anti-cheat hanya mencatat aktivitas yang dapat dideteksi oleh browser dan bukan jaminan pencegahan kondisi 100%.
+Catatan: Fitur anti-cheat hanya mencatat aktivitas yang dapat dideteksi oleh browser dan bukan jaminan pencegahan kondisi 100%.
 
 12. Kode QR Absensi
 
-Absensi menggunakan QR Code.
+Sistem absensi menggunakan QR Code.
 
 Membuat Sesi Absensi
+
 POS
+
 /api/attendance/sessions
 Meminta
 {
@@ -325,23 +412,29 @@ Tanggapan
   }
 }
 Melihat Sesi Absensi
+
 MENDAPATKAN
+
 /api/attendance/sessions
 Menutup Sesi Absensi
+
 POS
+
 /api/attendance/sessions/:id/close
 Pindai Kode QR
+
 POS
+
 /api/attendance/scan
 Meminta
 {
   "qr_token": "QR_TOKEN"
 }
-Validasi
+Validasi Absensi
 
 Sistem harus diperiksa:
 
-QR masih aktif
+Kode QR masih aktif
 Sesi absensi sesuai
 Siswa terdaftar di kelas
 Siswa belum melakukan absensi
@@ -351,23 +444,35 @@ Jika valid:
 
 HADIR
 13. Data Absensi
-Semua Absensi
+Mendapatkan Semua Absensi
+
 MENDAPATKAN
+
 /api/attendance
 Absensi Harian
+
 MENDAPATKAN
+
 /api/attendance/daily
 Absensi Mingguan
+
 MENDAPATKAN
+
 /api/attendance/weekly
 Absensi Bulanan
+
 MENDAPATKAN
+
 /api/attendance/monthly
 Semester Absensi
+
 MENDAPATKAN
+
 /api/attendance/semester
-Perbarui Status Absensi
+Mengubah Status Absensi
+
 MELETAKKAN
+
 /api/attendance/:id
 Meminta
 {
@@ -381,16 +486,24 @@ SAKIT
 ALPA
 14. Laporan
 Laporan Absensi
+
 MENDAPATKAN
+
 /api/reports/attendance
 Statistik Absensi
+
 MENDAPATKAN
+
 /api/reports/attendance/chart
 Ekspor Excel
+
 MENDAPATKAN
+
 /api/reports/attendance/export?format=xlsx
 Ekspor PDF
+
 MENDAPATKAN
+
 /api/reports/attendance/export?format=pdf
 15. Peran dan Otorisasi
 
@@ -403,12 +516,12 @@ GURU
 
 Dapat:
 
-Mengelola siswa
-Mengelola materi
-Mengelola bank soal
+Mengawasi siswa
+materi
+Mengelola soal bank
 Membuat ujian
-Mengelola absensi
-Melihat monitoring
+Mengelola ketidakhadiran
+Melihat pemantauan
 Melihat laporan
 SISWA
 
@@ -423,9 +536,9 @@ ADMIN
 
 Jika digunakan, dapat:
 
-Mengelola user
-Mengelola data sistem
-Mengelola konfigurasi
+pengguna
+Mengelola sistem data
+Konfigurasi Kepala
 16. Kode Status HTTP
 Status	Keterangan
 200	Berhasil
@@ -451,51 +564,51 @@ Siswa hanya dapat melakukan satu absensi pada satu sesi.
 Waktu ujian menggunakan waktu dari server.
 Setiap perubahan API harus dikomunikasikan ke Front-End.
 18. Pembagian Tanggung Jawab
-Front-End - Guntur
+Front-End — Guntur
 
 Bertanggung jawab terhadap:
 
-UI/UX implementation
-Form input
-Validasi tampilan
-API integration
-Loading state
-Error handling
-WebSocket client
-QR Code scanner
-Responsive design
-Back-End - Rahmat
+Implementasi UI/UX
+Masukan formulir
+Validasi Tampilan
+Integrasi API
+Status pemuatan
+Penanganan kesalahan
+Klien WebSocket
+Pemindai Kode QR
+Desain responsif
+Back-End — Rahmat
 
 Bertanggung jawab terhadap:
 
-REST API
-Authentication
-Authorization
-Database
-CRUD
-File upload
-Import Excel/CSV
-QR Code session
-QR validation
-Anti-cheat logging
+API REST
+Autentikasi
+Otorisasi
+Basis data
+KOTORAN
+Unggah file
+Impor Excel/CSV
+Sesi Kode QR
+Validasi QR
+Pencatatan anti-kecurangan
 WebSocket
-Reports
-Export Excel/PDF
-Manajer Proyek - Wawan
+Laporan
+Ekspor Excel/PDF
+Manajer Proyek — Wawan
 
 Bertanggung jawab terhadap:
 
 Dokumentasi
-Requirement
-User Flow
+Persyaratan
+Alur Pengguna
 ERD
-API Contract
+Kontrak API
 Pembagian tugas
-GitHub Issues
-GitHub Milestone
-Review Pull Request
+Masalah GitHub
+Pencapaian GitHub
+Tinjau Permintaan Tarik (Pull Request)
 Koordinasi Front-End dan Back-End
-Testing dan integrasi
+Pengujian dan integrasi
 19. Alur Komunikasi Front-End dan Back-End
 User
   ↓
@@ -514,20 +627,17 @@ JSON Response
 Front-End
   ↓
 User
-
-Untuk fitur pemantauan waktu nyata:
-
+Pemantauan Waktu Nyata
 Front-End
-     ↕
+    ↕
  WebSocket
-     ↕
+    ↕
 Back-End
 20. Catatan Perubahan API
 
 Setiap perubahan API harus dicatat oleh tim.
 
-Format:
-
+Format
 Tanggal:
 Perubahan:
 Endpoint:
@@ -535,9 +645,7 @@ Alasan:
 Front-End terdampak:
 Back-End terdampak:
 Status:
-
-Contoh:
-
+Contoh
 Tanggal: 20 September 2026
 Perubahan: Menambahkan endpoint scan QR
 Endpoint: POST /api/attendance/scan
@@ -552,25 +660,4 @@ Kontrak API ini menjadi acuan komunikasi antara Front-End dan Back-End.
 Setiap endpoint yang dibuat harus mengikuti dokumentasi ini agar proses integrasi aplikasi Administrasi-Guru berjalan terstruktur dan mengurangi kesalahan komunikasi antar anggota tim.
 
 
-### Cara memasukkannya ke GitHub
-
-1. Buka repository **Administrasi-Guru**
-2. Masuk folder **`docs`**
-3. Klik **`04-api-contract.md`**
-4. Klik ikon **pensil (Edit)**
-5. **Ctrl + A**
-6. Hapus isi lama
-7. **Paste** isi di atas
-8. Scroll ke bawah
-9. Isi commit, misalnya:
-   ```text
-   docs: update API contract
-
----
-
-# 2. Base URL
-
-Development:
-
-```text
-http://localhost:3000/api
+**Catatan:** Karena di dalamnya ada blok kode Markdown, kalau kamu menyalin dari tampilan chat ini, pastikan **semua isi dalam satu blok paling luar** ikut tersalin.
